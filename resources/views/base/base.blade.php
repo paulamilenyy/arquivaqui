@@ -15,7 +15,7 @@
 	</style>
 </head>
 <body>
-	<div class="jumbotron text-center" style="margin-bottom:0;background-image: url('../fundo.jpg');">
+	<div class="jumbotron text-center" style="margin-bottom:0;background-image: url('fundo.jpg');">
 		<h1>Arquivaqui</h1>
 	</div>
 
