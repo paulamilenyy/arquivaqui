@@ -1,6 +1,6 @@
-@extends('base.base')
+@extends('layouts.admin')
 
-@section('conteudo')
+@section('content')
 <p>foto do cheque aparece aqui</p>
 
 @endsection

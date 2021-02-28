@@ -79,7 +79,7 @@ class ChequeController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('cheques.edit');
     }
 
     /**

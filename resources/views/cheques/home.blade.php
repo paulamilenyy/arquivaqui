@@ -1,9 +1,17 @@
-@extends('base.base')
+@extends('layouts.admin')
 
-@section('conteudo')
-<h2>Cheques</h2>  
-<a href="{{route('cheques.create')}}"><img src="https://img.icons8.com/nolan/64/plus-2-math.png"/></a>
-
+@section('content')
+<!-- START PAGE CONTENT-->
+<div class="page-heading">
+	<h1 class="page-title">Cheques</h1>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.html"><i class="la la-home font-20"></i></a>
+		</li>
+		<li class="breadcrumb-item">Cheques</li>
+		<a href="{{route('cheques.create')}}"><img src="https://img.icons8.com/nolan/64/plus-2-math.png"/></a>
+	</ol>
+</div>
 @error('auth')
 <div class="alert alert-success col-sm-4">
 	<strong>
@@ -11,26 +19,31 @@
 	</strong> 
 </div>
 @enderror
-<p></p>          
-<div class="table-responsive-lg">  
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>foto</th>
-				<th>Banco</th>
-				<th>Nº</th>
-				<th>Data vencimento</th>
-				<th>Valor</th>
-				<th>Nome pessoa</th>
-				<th>Recebi de</th>
-				<th>Pass p/</th>
-				<th>Data de Cadastro</th>
-				<th>editar</th>
-				<th>excluir</th>
-			</tr>
-		</thead>
-		<tbody>
-			@if(count($cheques)>0)
+<p></p>   
+<div class="ibox">
+	<div class="ibox-head">
+		<div class="ibox-title">Responsive Table</div>
+	</div>
+	<div class="ibox-body">
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>foto</th>
+						<th>Banco</th>
+						<th>Nº</th>
+						<th>Data vencimento</th>
+						<th>Valor</th>
+						<th>Nome pessoa</th>
+						<th>Recebi de</th>
+						<th>Pass p/</th>
+						<th>Data de Cadastro</th>
+						<th>editar</th>
+						<th>excluir</th>
+					</tr>
+				</thead>
+				<tbody>
+					@if(count($cheques)>0)
 			@foreach($cheques as $cheque)
 			<tr>
 				<td><a href="{{route('cheques.show',['cheque'=>$cheque->id])}}">{{$cheque->foto}}</a></td>
@@ -60,7 +73,11 @@
 
 
 			@endif
-		</tbody>
-	</table>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
+
+
 @endsection
