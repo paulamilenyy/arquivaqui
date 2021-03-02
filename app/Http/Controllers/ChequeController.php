@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Cheque;
 class ChequeController extends Controller
 {
@@ -76,10 +77,13 @@ class ChequeController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * 
+    
      */
-    public function edit($id)
+    public function edit(Cheque $cheque)
     {
-        return view('cheques.edit');
+        //return view('cheques.edit');
+        return view('cheques.edit',['cheque'=>$cheque]);
     }
 
     /**
@@ -91,7 +95,33 @@ class ChequeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        //busca no bd para cheque
+        $cheque=Cheque::find($id);
+        //pega informacoes do form:
+        $foto=$request->post('foto');
+        $banco=$request->post('banco');
+        $n=$request->post('n');
+        $dt_venc=$request->post('dt_venc');
+        $valor=$request->post('valor');
+        $nome_pes=$request->post('nome_pes');
+        $recebi=$request->post('recebi');
+        $pass_p=$request->post('pass_p');
+        
+        //atualiza o registro
+        $cheque->foto=$foto;
+        $cheque->banco=$banco;
+        $cheque->numero=$n;
+        $cheque->data_vencimento=$dt_venc;
+        $cheque->valor=$valor;
+        $cheque->nome_pessoa=$nome_pes;
+        $cheque->recebido_de=$recebi;
+        $cheque->passei_para=$pass_p;
+        //$cheque->user_id=Auth::user()->id;
+        //operacao realizada no bd
+        $cheque->save();
+        return redirect()->to(route('cheques.index'));
+
     }
 
     /**

@@ -9,7 +9,7 @@
 			<a href="index.html"><i class="la la-home font-20"></i></a>
 		</li>
 		<li class="breadcrumb-item">Cheques</li>
-		<a href="{{route('cheques.create')}}"><img src="https://img.icons8.com/nolan/64/plus-2-math.png"/></a>
+		<a href="{{route('cheques.create')}}"><i class="fa fa-plus-square fa-3x"></i></a>
 	</ol>
 </div>
 @error('auth')
@@ -54,13 +54,13 @@
 				<td>{{$cheque->nome_pessoa}}</td>
 				<td>{{$cheque->recebido_de}}</td>
 				<td>{{$cheque->passei_para}}</td>
-				<td>{{$cheque->created_at}}</td>
-				<td><a href="{{route('cheques.edit',['cheque'=>$cheque->id])}}"><img src="https://img.icons8.com/nolan/64/multi-edit.png"/></a></td>
+				<td>{{$cheque->created_at}}
+				<td><a href="{{route('cheques.edit',['cheque'=>$cheque->id])}}"><i class="fa fa-edit fa-3x"></i></a></td>
 				<td>
 					<form action="{{route('cheques.destroy',['cheque'=>$cheque->id])}}" method="post">
 						@csrf
 						@method('DELETE')
-						<button style="border: none; cursor: pointer;background-color: transparent;"><img src="https://img.icons8.com/nolan/64/trash.png"/></button>
+						<button style="border: none; cursor: pointer;background-color: transparent;"><i class="fa fa-trash fa-3x"></i></td></button>
 					</form>
 				</td>
 			</tr>
