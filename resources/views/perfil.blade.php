@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="page-heading">
-	<h1 class="page-title">Profile</h1>
+	<h1 class="page-title">Perfil</h1>
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">
 			<a href="index.html"><i class="la la-home font-20"></i></a>
 		</li>
-		<li class="breadcrumb-item">Profile</li>
+		<li class="breadcrumb-item">Perfil</li>
 	</ol>
 </div>
 <div class="row">
@@ -19,7 +19,6 @@
 					<img class="img-circle" src="./assets/img/users/u3.jpg" />
 				</div>
 				<h5 class="font-strong m-b-10 m-t-10">{{ Auth::user()->name }}</h5>
-				<div class="m-b-20 text-muted">Web Developer</div>
 				<div class="profile-social m-b-20">
 					<a href="javascript:;"><i class="fa fa-twitter"></i></a>
 					<a href="javascript:;"><i class="fa fa-facebook"></i></a>
@@ -39,10 +38,10 @@
 			<div class="ibox-body">
 				<ul class="nav nav-tabs tabs-line">
 					<li class="nav-item">
-						<a class="nav-link active" href="#tab-1" data-toggle="tab"><i class="ti-bar-chart"></i> Overview</a>
+						<a class="nav-link active" href="#tab-1" data-toggle="tab"><i class="ti-bar-chart"></i>Visão geral</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#tab-2" data-toggle="tab"><i class="ti-settings"></i> Settings</a>
+						<a class="nav-link" href="#tab-2" data-toggle="tab"><i class="ti-settings"></i> Editar perfil</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#tab-3" data-toggle="tab"><i class="ti-announcement"></i> Feeds</a>
@@ -53,7 +52,7 @@
 						<div class="row">
 							
 							<div class="col-md-6">
-								<h5 class="text-info m-b-20 m-t-10"><i class="fa fa-user-plus"></i> Latest cheques</h5>
+								<h5 class="text-info m-b-20 m-t-10"><i class="fa fa-user-plus"></i> cheques recentes</h5>
 								<ul class="media-list media-list-divider m-0">
 									<li class="media">
 										<a class="media-img" href="javascript:;">

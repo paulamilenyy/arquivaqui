@@ -22,7 +22,7 @@
 <p></p>   
 <div class="ibox">
 	<div class="ibox-head">
-		<div class="ibox-title">Responsive Table</div>
+		<div class="ibox-title">Tabela de cheques adicionados</div>
 	</div>
 	<div class="ibox-body">
 		<div class="table-responsive">
