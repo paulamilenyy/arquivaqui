@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\Cheque;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function cheques()
+    {
+        return $this->hasMany(Cheque::class, 'user_id');
+       //1 usuario tem varios cheques
+    }
+
 }

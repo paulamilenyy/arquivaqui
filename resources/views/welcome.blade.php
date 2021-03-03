@@ -33,7 +33,8 @@
             <h2>Bem-vindx ao sistema Arquivaqui!
             </h2>
             <h2>Faça seu login e continue</h2>
-            <button class="btn btn-primary"><a style="color:white;" href="{{route('cheques.index')}}">Login
+            <button class="btn btn-primary">
+                <a style="color:white;" href="{{route('cheques.index')}}">Login
                 </a></button>
             <!--Com isso vai ir para a tela de login, pois para acessar o cheque tem q estar logado-->
         </div>

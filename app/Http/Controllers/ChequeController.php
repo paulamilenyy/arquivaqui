@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Cheque;
+use Auth;
 class ChequeController extends Controller
 {
     /**
@@ -47,6 +48,7 @@ class ChequeController extends Controller
         $nome_pes=$request->post('nome_pes');
         $recebi=$request->post('recebi');
         $pass_p=$request->post('pass_p');
+        
 
         $cheque=new Cheque;
         $cheque->foto=$foto;
@@ -57,6 +59,7 @@ class ChequeController extends Controller
         $cheque->nome_pessoa=$nome_pes;
         $cheque->recebido_de=$recebi;
         $cheque->passei_para=$pass_p;
+        $cheque->user_id=Auth::user()->id;
         $cheque->save();
         return redirect()->to(route('cheques.index'));
     }
