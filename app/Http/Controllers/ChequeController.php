@@ -70,9 +70,10 @@ class ChequeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cheque $cheque)
     {
-        return view('cheques.show');
+        //return view('cheques.show');
+        return view('cheques.show',['cheque'=>$cheque]);
     }
 
     /**
@@ -120,6 +121,7 @@ class ChequeController extends Controller
         $cheque->nome_pessoa=$nome_pes;
         $cheque->recebido_de=$recebi;
         $cheque->passei_para=$pass_p;
+        $cheque->user_id=Auth::user()->id;
         //$cheque->user_id=Auth::user()->id;
         //operacao realizada no bd
         $cheque->save();

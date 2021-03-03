@@ -54,7 +54,7 @@
                         <td>{{$cheque->nome_pessoa}}</td>
                         <td>{{$cheque->recebido_de}}</td>
                         <td>{{$cheque->passei_para}}</td>
-                        <td>{{$cheque->created_at}}
+                        <td>{{$cheque->created_at}}</td>
                         <td><a href="{{route('cheques.edit',['cheque'=>$cheque->id])}}"><i
                                     class="fa fa-edit fa-3x"></i></a></td>
                         <td>
