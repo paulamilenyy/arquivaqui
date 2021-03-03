@@ -36,7 +36,7 @@
                 <div class="input-group-icon right">
                     <div class="input-icon"><i class="fa fa-envelope"></i></div>
 
-                    <input id="matricula" type="text" class="form-control @error('matricula') is-invalid @enderror" placeholder="matricula" name="matricula" value="{{ old('matricula') }}" required autocomplete="matricula" autofocus>
+                    <input id="matricula" type="text" class="form-control @error('matricula') is-invalid @enderror" placeholder="matricula de 6 digitos" name="matricula" value="{{ old('matricula') }}" required autocomplete="matricula" autofocus>
                     @error('matricula')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -91,7 +91,7 @@
             </div>
             
             <div class="form-group">
-                <button class="btn btn-info btn-block" type="submit">Registrar</button>
+                <button class="btn btn-info btn-block" type="submit" style="cursor: pointer;">Registrar</button>
             </div>
 
         </form>

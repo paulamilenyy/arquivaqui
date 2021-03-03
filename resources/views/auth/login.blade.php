@@ -67,7 +67,7 @@
                     
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-info btn-block" type="submit">Login</button>
+                    <button class="btn btn-info btn-block" type="submit" style="cursor: pointer;">Login</button>
                 </div>
                 <div class="text-center">Not a member?
                     <a class="color-blue" href="{{ route('register') }}">Criar conta</a>
