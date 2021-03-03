@@ -28,7 +28,7 @@
 <body class="bg-silver-300" style="background-image:url({{url('./fundo2.jpg')}}); background-repeat: no-repeat;">
 
     <div class="content">
-        <img class="card-img-top" src="./assets/img/logoarquivaqui.jpeg" />
+        <!--<img class="card-img-top" src="./assets/img/logoarquivaqui.jpeg" />-->
         <div class="card-body" style="background-color: white;">
             <h2>Bem-vindx ao sistema Arquivaqui!
             </h2>

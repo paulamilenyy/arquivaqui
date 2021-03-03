@@ -19,27 +19,27 @@
                             <h4 class="card-title">Foto do cheque</h4>
                             <div class="text-muted card-subtitle">Cadastrado dia {{$cheque->created_at}}</div>
                             <p class="card-text">
-                                <ul class="list-group list-group-bordered">
-                                    <li class="list-group-item">Banco: {{$cheque->banco}}
-                                        <span class="badge badge-info float-right"><i class="fa fa-university"></i></span>
-                                    </li>
-                                    <li class="list-group-item">Número:{{$cheque->numero}}
-                                        <span class="badge badge-info float-right"><i class="fa fa-money"></i></span>
-                                    </li>
-                                    <li class="list-group-item">Valor:{{$cheque->valor}}
-                                        <span class="badge badge-info float-right">$</span>
-                                    </li>
-                                    <li class="list-group-item">Nome no cheque:{{$cheque->nome_pessoa}}
-                                        <span class="badge badge-info float-right"><i class="fa fa-user"></i></span>
-                                    </li>
-                                    <li class="list-group-item">Recebi do cliente:{{$cheque->recebido_de}}
-                                        <span class="badge badge-info float-right"><i class="fa fa-user"></i></span>
-                                    </li>
-                                    <li class="list-group-item">Passei para o cliente:{{$cheque->passei_para}}
-                                        <span class="badge badge-info float-right"><i class="fa fa-user"></i></span>
-                                    </li>
-                                </ul>
-                            
+                            <ul class="list-group list-group-bordered">
+                                <li class="list-group-item">Banco: {{$cheque->banco}}
+                                    <span class="badge badge-info float-right"><i class="fa fa-university"></i></span>
+                                </li>
+                                <li class="list-group-item">Número:{{$cheque->numero}}
+                                    <span class="badge badge-info float-right"><i class="fa fa-money"></i></span>
+                                </li>
+                                <li class="list-group-item">Valor:{{$cheque->valor}}
+                                    <span class="badge badge-info float-right">$</span>
+                                </li>
+                                <li class="list-group-item">Nome no cheque:{{$cheque->nome_pessoa}}
+                                    <span class="badge badge-info float-right"><i class="fa fa-user"></i></span>
+                                </li>
+                                <li class="list-group-item">Recebi do cliente:{{$cheque->recebido_de}}
+                                    <span class="badge badge-info float-right"><i class="fa fa-user"></i></span>
+                                </li>
+                                <li class="list-group-item">Passei para o cliente:{{$cheque->passei_para}}
+                                    <span class="badge badge-info float-right"><i class="fa fa-user"></i></span>
+                                </li>
+                            </ul>
+
                             <button class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Add</button>
                         </div>
                     </div><br>
