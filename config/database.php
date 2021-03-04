@@ -1,6 +1,24 @@
 <?php
 
 use Illuminate\Support\Str;
+//o codigo abaixo é pra poder usar o banco de dados no heruko, apenas ao entrar no heroku
+$mysql= 'local_mysql';
+if (getenv('APP_ENV')!='local'){
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+    $host = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $database = substr($url["path"],1);
+
+    $mysql = 'remote_mysql';
+
+}else{
+    $host = "";
+    $username = "";
+    $password = "";
+    $database = "";
+}
 
 return [
 
@@ -15,7 +33,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', $mysql),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,8 +60,19 @@ return [
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
+        'remote_mysql' =>array(
+            'driver'=>'mysql',
+            'host'=>$host,
+            'database'=>$database,
+            'username'=> $username,
+            'password'=> $password,
+            'charset'=> 'utf8',
+            'collation'=> 'utf8_unicode_ci',
+            'prefix'=>'', 
 
-        'mysql' => [
+        ),
+
+        'local_mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
