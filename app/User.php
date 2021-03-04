@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','profile_image'
     ];
 
     /**
@@ -42,5 +42,8 @@ class User extends Authenticatable
         return $this->hasMany(Cheque::class, 'user_id');
        //1 usuario tem varios cheques
     }
-
+    public function getImageAttribute()
+    {
+        return $this->profile_image;
+    }
 }

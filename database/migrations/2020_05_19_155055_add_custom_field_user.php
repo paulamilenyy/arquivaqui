@@ -14,7 +14,7 @@ class AddCustomFieldUser extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('matricula');
+            $table->integer('matricula')->default('111111');
         });
     }
 

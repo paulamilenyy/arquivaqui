@@ -29,7 +29,7 @@ class AddUserChequesFkTable extends Migration
     public function down()
     {
         Schema::table('cheques', function (Blueprint $table) {
-            
+            $table->dropForeign('cheques_user_id_foreign');
                 $table->dropColumn('user_id');
         });
     }

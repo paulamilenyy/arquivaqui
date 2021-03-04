@@ -20,6 +20,8 @@
 </div>
 @enderror
 <p></p>
+
+
 <div class="ibox">
     <div class="ibox-head">
         <div class="ibox-title">Tabela de cheques adicionados</div>

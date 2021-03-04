@@ -27,7 +27,7 @@
 
 <body class="bg-silver-300" style="background-image:url({{url('./fundo2.jpg')}}); background-repeat: no-repeat;">
     <div class="content" >
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
             @csrf
             <h2 class="login-title">Registro</h2>
 
@@ -36,7 +36,7 @@
                 <div class="input-group-icon right">
                     <div class="input-icon"><i class="fa fa-envelope"></i></div>
 
-                    <input id="matricula" type="text" class="form-control @error('matricula') is-invalid @enderror" placeholder="matricula de 6 digitos" name="matricula" value="{{ old('matricula') }}" required autocomplete="matricula" autofocus>
+                    <input style="display:none;" id="matricula" size="6" type="text" class="form-control @error('matricula') is-invalid @enderror" placeholder="matricula de 6 digitos" name="matricula" value="{{ old('matricula') }}" required autocomplete="matricula" autofocus>
                     @error('matricula')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -87,6 +87,20 @@
                     <div class="input-icon"><i class="fa fa-lock font-16"></i></div>
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="confirmar senha">
                     
+                </div>
+            </div>
+            <div class="form-group"> <!--IMAGEM DE PERFIL-->
+
+                <div class="input-group-icon right">
+                    <div class="input-icon"><i class="fa fa-envelope"></i></div>
+                    <label>Insira sua imagem de perfil:</label>
+                    <input id="profile_image" type="file" class="form-control @error('profile_image') is-invalid @enderror" name="profile_image" >
+
+                    @error('profile_image')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
             </div>
             
