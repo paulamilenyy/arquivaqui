@@ -16,7 +16,7 @@
 		<div class="ibox">
 			<div class="ibox-body text-center">
 				<div class="m-t-20">
-					<img class="img-circle" src="{{ asset( Auth::user()->profile_image ) }}"" />
+					<img class="img-circle" src="{{ asset( Auth::user()->profile_image ) }}" onerror="this.src='{{asset('./assets/img/user.png')}}'" />
 				</div>
 				<h5 class="font-strong m-b-10 m-t-10">{{ Auth::user()->name }}</h5>
 				<div class="profile-social m-b-20">

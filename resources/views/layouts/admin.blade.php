@@ -48,7 +48,7 @@
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                      
-                            <img src="{{ asset( Auth::user()->profile_image ) }}" />
+                            <img src="{{ asset( Auth::user()->profile_image ) }}" onerror="this.src='{{asset('./assets/img/user.png')}}'"/>
 
                             <span></span>{{ Auth::user()->name }}<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
@@ -72,7 +72,7 @@
             <div id="sidebar-collapse">
                 <div class="admin-block d-flex">
                     <div>
-                        <img src="{{ asset( Auth::user()->profile_image ) }}" width="45px" style="border-radius:50%;"/>
+                        <img src="{{ asset( Auth::user()->profile_image ) }}" width="45px" style="border-radius:50%;" onerror="this.src='{{asset('./assets/img/user.png')}}'"/>
                     </div>
                     <div class="admin-info">
                         <div class="font-strong">{{ Auth::user()->name }}</div><small>Administrator</small>

@@ -93,7 +93,7 @@
 
                 <div class="input-group-icon right">
                     <div class="input-icon"><i class="fa fa-envelope"></i></div>
-                    <label>Insira sua imagem de perfil:</label>
+                    <label>Insira sua imagem de perfil, caso deseje:</label>
                     <input id="profile_image" type="file" class="form-control @error('profile_image') is-invalid @enderror" name="profile_image" >
 
                     @error('profile_image')

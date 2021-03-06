@@ -17,7 +17,7 @@ class CreateChequesTable extends Migration
             $table->id();
             
 
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('numero');
             $table->date('data_vencimento');
             $table->float('valor');
