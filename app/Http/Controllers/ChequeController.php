@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Cheque;
 use Auth;
+
+
 class ChequeController extends Controller
 {
     /**
@@ -40,6 +42,46 @@ class ChequeController extends Controller
      */
     public function store(Request $request)
     {
+        //caso o usuário decida acrescentar a imagem do cheque, esse codigo abaixo faz isso
+        if ($request->hasFile('foto')) {
+            //  Let's do everything here
+            if ($request->file('foto')->isValid()) {
+                //abaixo é especificado as estenções e o tamanho maximo da foto do cheque
+                $validated = $request->validate([
+                    'foto' => 'mimes:jpg,jpeg,bmp,sbg,png|max:5000',
+                ]);
+                $profileuploaded=request()->file('foto');
+                $profilename = time() . '.' . $profileuploaded->getClientOriginalExtension();
+                $profilepath = public_path('/assets/img/');
+                $profileuploaded->move($profilepath,$profilename);
+                $foto= '/assets/img/' . $profilename;
+                $banco=$request->post('banco');
+                $n=$request->post('n');
+                $dt_venc=$request->post('dt_venc');
+                $valor=$request->post('valor');
+                $nome_pes=$request->post('nome_pes');
+                $recebi=$request->post('recebi');
+                $pass_p=$request->post('pass_p');
+        
+
+                $cheque=new Cheque;
+                $cheque->foto=$foto;
+                $cheque->banco=$banco;
+                $cheque->numero=$n;
+                $cheque->data_vencimento=$dt_venc;
+                $cheque->valor=$valor;
+                $cheque->nome_pessoa=$nome_pes;
+                $cheque->recebido_de=$recebi;
+                $cheque->passei_para=$pass_p;
+                $cheque->user_id=Auth::user()->id;
+                $cheque->save();
+                return redirect()->to(route('cheques.index'));
+       
+            
+            }
+        }
+        
+        //caso o usuario nao queira inserir a foto:
         $foto=$request->post('foto');
         $banco=$request->post('banco');
         $n=$request->post('n');
@@ -62,6 +104,8 @@ class ChequeController extends Controller
         $cheque->user_id=Auth::user()->id;
         $cheque->save();
         return redirect()->to(route('cheques.index'));
+        
+        
     }
 
     /**
@@ -99,9 +143,48 @@ class ChequeController extends Controller
      */
     public function update(Request $request, $id)
     {
+          
+        //caso o usuário decida acrescentar a imagem do cheque, esse codigo abaixo faz isso
+        if ($request->hasFile('foto')) {
+            //  Let's do everything here
+            if ($request->file('foto')->isValid()) {
+                //abaixo é especificado as estenções e o tamanho maximo da foto do cheque
+                $validated = $request->validate([
+                    'foto' => 'mimes:jpg,jpeg,bmp,sbg,png|max:5000',
+                ]);
+                
+                $profileuploaded=request()->file('foto');
+                $profilename = time() . '.' . $profileuploaded->getClientOriginalExtension();
+                $profilepath = public_path('/assets/img/');
+                $profileuploaded->move($profilepath,$profilename);
+                $foto= '/assets/img/' . $profilename;
+
+                //pegar informações do form:
+                $banco=$request->post('banco');
+                $n=$request->post('n');
+                $dt_venc=$request->post('dt_venc');
+                $valor=$request->post('valor');
+                $nome_pes=$request->post('nome_pes');
+                $recebi=$request->post('recebi');
+                $pass_p=$request->post('pass_p');
         
-        //busca no bd para cheque
-        $cheque=Cheque::find($id);
+                //busca no bd para cheque
+                 $cheque=Cheque::find($id);
+                $cheque->foto=$foto;
+                $cheque->banco=$banco;
+                $cheque->numero=$n;
+                $cheque->data_vencimento=$dt_venc;
+                $cheque->valor=$valor;
+                $cheque->nome_pessoa=$nome_pes;
+                $cheque->recebido_de=$recebi;
+                $cheque->passei_para=$pass_p;
+                $cheque->user_id=Auth::user()->id;
+                $cheque->save();
+                return redirect()->to(route('cheques.index'));
+       
+            
+            }
+        }
         //pega informacoes do form:
         $foto=$request->post('foto');
         $banco=$request->post('banco');
@@ -113,6 +196,8 @@ class ChequeController extends Controller
         $pass_p=$request->post('pass_p');
         
         //atualiza o registro
+        //busca no bd para cheque
+        $cheque=Cheque::find($id);
         $cheque->foto=$foto;
         $cheque->banco=$banco;
         $cheque->numero=$n;

@@ -14,7 +14,7 @@
                 </div>
                 <div class="ibox-body">
                     <div class="card" style="width:200px;">
-                        <img class="card-img-top" src="{{asset('./assets/img/blog/storm.jpg')}}" />
+                        <img class="card-img-top" src="{{ asset( $cheque->foto ) }}" style="width:800px;" onerror="this.src='{{asset('./assets/img/chequeanonimo.png')}}'">
                         <div class="card-body">
                             <h4 class="card-title">Foto do cheque</h4>
                             <div class="text-muted card-subtitle">Cadastrado dia {{$cheque->created_at}}</div>

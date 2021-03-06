@@ -32,39 +32,33 @@
                 <thead>
                     <tr>
                         <th>foto</th>
-                        <th>Banco</th>
                         <th>Nº</th>
-                        <th>Data vencimento</th>
-                        <th>Valor</th>
-                        <th>Nome pessoa</th>
-                        <th>Recebi de</th>
-                        <th>Pass p/</th>
                         <th>Data de Cadastro</th>
-                        <th>editar</th>
-                        <th>excluir</th>
+                        <th>Ver detalhes</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                        
+
                     </tr>
                 </thead>
                 <tbody>
                     @if(count($cheques)>0)
                     @foreach($cheques as $cheque)
                     <tr>
-                        <td><a href="{{route('cheques.show',['cheque'=>$cheque->id])}}">{{$cheque->foto}}</a></td>
-                        <td>{{$cheque->banco}}</td>
+                        <td><a href="{{route('cheques.show',['cheque'=>$cheque->id])}}"><img src="{{ asset( $cheque->foto ) }}" style="width:90px;height:70px;" onerror="this.src='{{asset('./assets/img/chequeanonimo.png')}}'"></a></td>
+                       
                         <td>{{$cheque->numero}}</td>
-                        <td>{{$cheque->data_vencimento}}</td>
-                        <td>{{$cheque->valor}}</td>
-                        <td>{{$cheque->nome_pessoa}}</td>
-                        <td>{{$cheque->recebido_de}}</td>
-                        <td>{{$cheque->passei_para}}</td>
                         <td>{{$cheque->created_at}}</td>
+                        <td><a href="{{route('cheques.show',['cheque'=>$cheque->id])}}"><i
+                                    class="fa fa-eye fa-2x"></i></a></td>
                         <td><a href="{{route('cheques.edit',['cheque'=>$cheque->id])}}"><i
-                                    class="fa fa-edit fa-3x"></i></a></td>
-                        <td>
-                            <form action="{{route('cheques.destroy',['cheque'=>$cheque->id])}}" method="post">
+                                    class="fa fa-edit fa-2x"></i></a></td>
+                        
+                            <td><form action="{{route('cheques.destroy',['cheque'=>$cheque->id])}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button style="border: none; cursor: pointer;background-color: transparent;"><i
-                                        class="fa fa-trash fa-3x"></i>
+                                <button style="border: none; cursor: pointer;background-color: transparent;"><a href="#"><i
+                                    class="fa fa-trash fa-2x"></i></a>
                         </td></button>
                         </form>
                         </td>

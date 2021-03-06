@@ -95,7 +95,7 @@
                     <div class="input-icon"><i class="fa fa-envelope"></i></div>
                     <label>Insira sua imagem de perfil, caso deseje:</label>
                     <input id="profile_image" type="file" class="form-control @error('profile_image') is-invalid @enderror" name="profile_image" >
-
+                    <!--obs: esse atributo onerror permite que, caso o usuario nao deseja inserir uma imagem de perfil sua, seja colocado no lugar dela uma logo de usuário anonimo-->
                     @error('profile_image')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

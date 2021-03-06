@@ -12,19 +12,16 @@
                 </div>
             </div>
             <div class="ibox-body">
-                <form class="form-horizontal" action="{{route('cheques.store')}}" method="post">
+                <form class="form-horizontal" action="{{route('cheques.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     
                     <div class="form-group">
                         <!--IMAGEM DE CHEQUE-->
 
                         <div class="form-group row">
-
                             <label class="col-sm-2 col-form-label">Foto do cheque:</label>
                             <input id="foto" type="file"
-                                class="form-control @error('profile_image') is-invalid @enderror" name="foto">
-
-
+                                class="form-control @error('foto') is-invalid @enderror" name="foto">
                         </div>
                     </div>
                     <div class="form-group row">
