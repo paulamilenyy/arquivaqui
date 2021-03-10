@@ -37,41 +37,41 @@
                         <th>Ver detalhes</th>
                         <th>Editar</th>
                         <th>Excluir</th>
-                        
+
 
                     </tr>
                 </thead>
                 <tbody>
                     @if(count($cheques)>0)
                     @foreach($cheques as $cheque)
+                    @can('lista-cheques',$cheque)
                     <tr>
-                        <td><a href="{{route('cheques.show',['cheque'=>$cheque->id])}}"><img src="{{ asset( $cheque->foto ) }}" style="width:90px;height:70px;" onerror="this.src='{{asset('./assets/img/chequeanonimo.png')}}'"></a></td>
-                       
+                        <td><a href="{{route('cheques.show',['cheque'=>$cheque->id])}}"><img
+                                    src="{{ asset( $cheque->foto ) }}" style="width:90px;height:70px;"
+                                    onerror="this.src='{{asset('./assets/img/chequeanonimo.png')}}'"></a></td>
+
                         <td>{{$cheque->numero}}</td>
                         <td>{{$cheque->created_at}}</td>
                         <td><a href="{{route('cheques.show',['cheque'=>$cheque->id])}}"><i
                                     class="fa fa-eye fa-2x"></i></a></td>
                         <td><a href="{{route('cheques.edit',['cheque'=>$cheque->id])}}"><i
                                     class="fa fa-edit fa-2x"></i></a></td>
-                        
-                            <td><form action="{{route('cheques.destroy',['cheque'=>$cheque->id])}}" method="post">
+
+                        <td>
+                            <form action="{{route('cheques.destroy',['cheque'=>$cheque->id])}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button style="border: none; cursor: pointer;background-color: transparent;"><a href="#"><i
-                                    class="fa fa-trash fa-2x"></i></a>
+                                <button style="border: none; cursor: pointer;background-color: transparent;"><a
+                                        href="#"><i class="fa fa-trash fa-2x"></i></a>
                         </td></button>
                         </form>
                         </td>
                     </tr>
-
+                    @endcan
                     @endforeach
-                    @else
-                    <tr>
-                        <td>Nenhum cheque cadastrado ----- <a href="{{route('cheques.create')}}">adicionar</a> </td>
-                    </tr>
-
-
                     @endif
+                    
+                   
                 </tbody>
             </table>
         </div>
