@@ -146,7 +146,6 @@ class ChequeController extends Controller
           
         //caso o usuário decida acrescentar a imagem do cheque, esse codigo abaixo faz isso
         if ($request->hasFile('foto')) {
-            //  Let's do everything here
             if ($request->file('foto')->isValid()) {
                 //abaixo é especificado as estenções e o tamanho maximo da foto do cheque
                 $validated = $request->validate([

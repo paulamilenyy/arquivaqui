@@ -70,8 +70,8 @@
                     @endcan
                     @endforeach
                     @endif
-                    
-                   
+
+
                 </tbody>
             </table>
         </div>
