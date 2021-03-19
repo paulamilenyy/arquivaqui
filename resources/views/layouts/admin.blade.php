@@ -53,7 +53,7 @@
 
                             <span></span>{{ Auth::user()->name }}<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{route('perfil')}}"><i class="fa fa-user"></i>Profile</a>
+                            <a class="dropdown-item" href="{{route('perfil')}}"><i class="fa fa-user"></i>Perfil</a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
                                 logout

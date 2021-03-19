@@ -15,6 +15,7 @@ $factory->define(Cheque::class, function (Faker $faker) {
         'banco'=>"Bradesco",
         'recebido_de'=> $faker->name,
         'passei_para'=> $faker->name,
+        'user_id'=>4,
     ];
 });
 
