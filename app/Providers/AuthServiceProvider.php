@@ -27,6 +27,7 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('lista-cheques',function($user,$cheque){
             return $user->id === $cheque->user_id;
         });
+        //esse gate permite que o usuário apenas veja (e por sua vez edite), os livros que ele cadastrar
 
         //
     }
