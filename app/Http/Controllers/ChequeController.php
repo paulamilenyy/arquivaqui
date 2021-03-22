@@ -184,8 +184,13 @@ class ChequeController extends Controller
             
             }
         }
+        
+        
+        
+        //busca no bd para cheque
+        $cheque=Cheque::find($id);
         //pega informacoes do form:
-        $foto=$request->post('foto');
+        //$foto=$request->post('foto');
         $banco=$request->post('banco');
         $n=$request->post('n');
         $dt_venc=$request->post('dt_venc');
@@ -193,11 +198,8 @@ class ChequeController extends Controller
         $nome_pes=$request->post('nome_pes');
         $recebi=$request->post('recebi');
         $pass_p=$request->post('pass_p');
-        
         //atualiza o registro
-        //busca no bd para cheque
-        $cheque=Cheque::find($id);
-        $cheque->foto=$foto;
+        //$cheque->foto=$foto;
         $cheque->banco=$banco;
         $cheque->numero=$n;
         $cheque->data_vencimento=$dt_venc;
@@ -206,7 +208,7 @@ class ChequeController extends Controller
         $cheque->recebido_de=$recebi;
         $cheque->passei_para=$pass_p;
         $cheque->user_id=Auth::user()->id;
-        //$cheque->user_id=Auth::user()->id;
+        
         //operacao realizada no bd
         $cheque->save();
         return redirect()->to(route('cheques.index'));
